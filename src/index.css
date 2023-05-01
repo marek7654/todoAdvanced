@@ -28,8 +28,6 @@ body {
 }
 
 .container {
-  display: flex;
-  flex-wrap: wrap;
   width: 1200px;
   max-width: calc(100% - 60px);
   margin: 0 auto;

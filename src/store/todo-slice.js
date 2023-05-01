@@ -36,6 +36,20 @@ const DUMMY_todo = [
     important: true,
     done: false,
   },
+  {
+    id: 6,
+    title: 'Ping pong z Łukaszem 2h - :)',
+    date: '2023,05,01',
+    important: true,
+    done: false,
+  },
+  {
+    id: 7,
+    title: 'Wycieczka rowerowa 50km gravelem :D',
+    date: '2023,05,02',
+    important: true,
+    done: false,
+  },
 ];
 
 const todoSlice = createSlice({

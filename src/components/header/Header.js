@@ -3,7 +3,7 @@ import Switch from './Switch';
 
 const Header = () => {
   return <header className={classes.header}>
-    <div className="container flex">
+    <div className={`container ${classes.container}`}>
       <h1 className={classes.title}>ToDo Advanced</h1>
       <Switch />
     </div>

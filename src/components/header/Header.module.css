@@ -3,6 +3,10 @@
   padding: 20px 0;
 }
 
+.container {
+  display: flex;
+}
+
 .title {
   margin: 0;
   width: fit-content;

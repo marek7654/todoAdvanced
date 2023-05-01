@@ -4,7 +4,8 @@ import { isToday, isTomorrow } from '../../helpers/script';
 
 const TodoListItem = (props) => {
   const { id, title, date, important, done } = props.itemData;
-  
+  const { liteVersion } = props;
+
   let dateString = `${date.getDate()} ${date.toLocaleString('en', {
     month: 'short',
   })} ${date.getFullYear()}`;
@@ -20,7 +21,7 @@ const TodoListItem = (props) => {
       {important && <span className={classes.important}>!!!&nbsp;</span>}
       <span className={classes.title}>{title}</span>
       <div className={classes.date_box}>
-        <span className={classes.date}>{dateString}</span>
+        {!liteVersion && <span className={classes.date}>{dateString}</span>}
         <Checkbox id={id} done={done} />
       </div>
     </li>
