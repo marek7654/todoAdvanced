@@ -35,7 +35,7 @@ input.checkbox {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: darkslateblue;
+  background-color: var(--color-secondary);
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
@@ -54,11 +54,11 @@ input.checkbox {
 }
 
 input.checkbox:checked + .slider {
-  background-color: #ff5f25;
+  background-color: var(--color-accent);
 }
 
 input.checkbox:focus + .slider {
-  box-shadow: 0 0 1px #ff5f25;
+  box-shadow: 0 0 1px var(--color-accent);
 }
 
 input.checkbox:checked + .slider:before {

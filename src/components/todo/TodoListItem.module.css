@@ -1,0 +1,13 @@
+.item {
+  display: flex;
+  font-size: 1.5rem;
+}
+
+.important {
+  margin-right: 10px;
+  color: limegreen;
+}
+
+.date_box {
+  margin-left: auto;
+}
