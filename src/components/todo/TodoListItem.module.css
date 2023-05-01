@@ -1,13 +1,29 @@
 .item {
   display: flex;
+  align-items: center;
   font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.done { 
+  color: darkgray;
+  text-decoration: line-through;
 }
 
 .important {
-  margin-right: 10px;
   color: limegreen;
+}
+.done .important{ 
+  color: darkgray;
 }
 
 .date_box {
+  display: flex;
+  align-items: center;
   margin-left: auto;
+}
+
+.date {
+  margin-right: 10px;
+  font-size: 1.2rem;
 }

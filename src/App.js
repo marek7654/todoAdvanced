@@ -1,13 +1,14 @@
-import { Provider } from 'react-redux';
+import { Provider, useSelector } from 'react-redux';
 
 import store from './store';
 import Header from './components/header/Header';
 import Card from './components/UI/Card';
 
 import classes from './App.module.css';
-import TodoList from './components/todo/TodoList';
+import ListAll from './components/todo/ListAll';
 
 function App() {
+
   return (
     <Provider store={store}>
       <Header />
@@ -29,9 +30,7 @@ function App() {
               </p>
             </Card>
           </div>
-          <Card title='To jest test'>
-            <TodoList />
-          </Card>
+          <ListAll />
         </div>
       </main>
     </Provider>
