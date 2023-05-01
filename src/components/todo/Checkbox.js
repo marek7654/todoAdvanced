@@ -7,7 +7,7 @@ const Checkbox = (props) => {
   const { id, done } = props;
   const dispatch = useDispatch();
 
-  const checkboxHandler = (event) => {
+  const checkboxHandler = () => {
     dispatch(
       todoSliceActions.setStatus({
         id,
