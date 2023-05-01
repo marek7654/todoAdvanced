@@ -1,0 +1,11 @@
+.header {
+  background-color: white;
+  padding: 20px 0;
+}
+
+.title {
+  margin: 0;
+  width: fit-content;
+  font-family: 'Kalam', cursive;
+  color: darkslateblue;
+}
