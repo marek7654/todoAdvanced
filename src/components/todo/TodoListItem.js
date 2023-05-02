@@ -18,7 +18,6 @@ const TodoListItem = (props) => {
   const dispatch = useDispatch();
 
   const checkboxHandler = () => {
-    console.log(id, done);
     dispatch(
       todoSliceActions.setStatus({
         id,

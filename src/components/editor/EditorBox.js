@@ -1,9 +1,10 @@
 import { useSelector, useDispatch } from 'react-redux';
 
+import { uiSliceActions } from '../../store/ui-slice';
 import classes from './EditorBox.module.css';
 import Button from '../UI/Button';
-import { uiSliceActions } from '../../store/ui-slice';
 import Card from '../UI/Card';
+import Form from './Form';
 
 const EditorBox = () => {
   const dispatch = useDispatch();
@@ -21,9 +22,7 @@ const EditorBox = () => {
       {displayEditor && (
         <div className={classes.form_wrapper}>
           <Card title='Add new item'>
-            <form className={classes.form}>
-              <p>sdfsdfsdf</p>
-            </form>
+            <Form />
           </Card>
         </div>
       )}

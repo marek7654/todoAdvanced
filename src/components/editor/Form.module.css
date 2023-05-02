@@ -1,0 +1,29 @@
+.form {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.inputs_wrapper {
+  width: 100%;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+  gap: 50px;
+}
+
+.checkbox_wrapper {
+  display: flex;
+  align-self: flex-start;
+}
+
+.checkbox_wrapper > h2 {
+  margin: 0 0 0 10px;
+}
+
+.buttons_wrapper {
+  margin-left: auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+}
