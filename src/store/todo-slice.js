@@ -66,6 +66,9 @@ const todoSlice = createSlice({
       );
       state.items[itemIndex].done = !action.payload.done;
     },
+    removeItem(state, action) {
+      state.items = state.items.filter(item => item.id !== action.payload);
+    },
     hideDoneTasks(state, action) {
       state.hideDone = action.payload;
     },

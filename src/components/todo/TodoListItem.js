@@ -13,7 +13,7 @@ import { uiSliceActions } from '../../store/ui-slice';
 
 const TodoListItem = (props) => {
   const dispatch = useDispatch();
-  
+
   const { id, title, date, important, done } = props.itemData;
   const { liteVersion } = props;
 
@@ -55,6 +55,13 @@ const TodoListItem = (props) => {
     dispatch(uiSliceActions.showEditor(true));
   };
 
+  const removeHandler = () => {
+    const proceed = window.confirm('Are you sure you want to remove it?');
+    if (proceed) {
+      dispatch(todoSliceActions.removeItem(id));
+    }
+  };
+
   return (
     <li
       className={`${classes.item} ${important ? 'bold' : ''} ${
@@ -64,6 +71,7 @@ const TodoListItem = (props) => {
       {important && <span className={classes.important}>!!!&nbsp;</span>}
       <span className={classes.title}>{title}</span>
       {!liteVersion && <button onClick={editHandler}>edit</button>}
+      {!liteVersion && <button onClick={removeHandler}>remove</button>}
       <div className={classes.date_box}>
         {!liteVersion && <span className={classes.date}>{dateString}</span>}
         <Checkbox id={id} checked={done} onCheckboxChange={checkboxHandler} />
