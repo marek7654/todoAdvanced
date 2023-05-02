@@ -3,19 +3,26 @@ import { useDispatch } from 'react-redux';
 import { todoSliceActions } from '../../store/todo-slice';
 import Checkbox from '../UI/Checkbox';
 import classes from './TodoListItem.module.css';
-import { isToday, isTomorrow } from '../../helpers/script';
+import { isToday, isTomorrow, isPast, isYesterday } from '../../helpers/date-helper';
 
 const TodoListItem = (props) => {
+  const dispatch = useDispatch();
+
   const { id, title, date, important, done } = props.itemData;
   const { liteVersion } = props;
 
-  let dateString = `${date.getDate()} ${date.toLocaleString('en', {
-    month: 'short',
-  })} ${date.getFullYear()}`;
-  dateString = isToday(date) ? 'Today' : dateString;
-  dateString = isTomorrow(date) ? 'Tomorrow' : dateString;
-
-  const dispatch = useDispatch();
+  let dateString;
+  if (isToday(date)) {
+    dateString = 'Today';
+  } else if (isTomorrow(date)) {
+    dateString = 'Tomorrow';
+  } else if (isYesterday(date)) {
+    dateString = 'Yesterday';
+  } else {
+    dateString = `${date.getDate()} ${date.toLocaleString('en', {
+      month: 'short',
+    })} ${date.getFullYear()}`;
+  }
 
   const checkboxHandler = () => {
     dispatch(
@@ -30,7 +37,7 @@ const TodoListItem = (props) => {
     <li
       className={`${classes.item} ${important ? 'bold' : ''} ${
         done ? classes.done : ''
-      }`}
+      } ${isPast(date) ? classes.overdue : ''}`}
     >
       {important && <span className={classes.important}>!!!&nbsp;</span>}
       <span className={classes.title}>{title}</span>

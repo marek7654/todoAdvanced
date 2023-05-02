@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { isToday, isTomorrow} from '../../helpers/script';
+import { isToday, isTomorrow} from '../../helpers/date-helper';
 
 import Card from '../UI/Card';
 import TodoList from './TodoList';

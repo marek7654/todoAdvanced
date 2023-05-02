@@ -5,14 +5,19 @@
   margin-bottom: 10px;
 }
 
-.done { 
-  color: darkgray;
-  text-decoration: line-through;
+.overdue {
+  color: var(--color-secondary);
 }
 
 .important {
   color: limegreen;
 }
+
+.done { 
+  color: darkgray;
+  text-decoration: line-through;
+}
+
 .done .important{ 
   color: darkgray;
 }
