@@ -57,16 +57,22 @@ const todoSlice = createSlice({
   initialState: {
     items: DUMMY_todo,
     hideDone: false,
+    currentItem: false,
   },
   reducers: {
     setStatus(state, action) {
-      const itemIndex = state.items.findIndex(item => item.id === action.payload.id);
+      const itemIndex = state.items.findIndex(
+        (item) => item.id === action.payload.id
+      );
       state.items[itemIndex].done = !action.payload.done;
     },
     hideDoneTasks(state, action) {
       state.hideDone = action.payload;
-    }
-  }
+    },
+    setCurrentItem(state, action) {
+      state.currentItem = action.payload;
+    },
+  },
 });
 
 export default todoSlice;

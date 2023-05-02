@@ -3,11 +3,17 @@ import { useDispatch } from 'react-redux';
 import { todoSliceActions } from '../../store/todo-slice';
 import Checkbox from '../UI/Checkbox';
 import classes from './TodoListItem.module.css';
-import { isToday, isTomorrow, isPast, isYesterday } from '../../helpers/date-helper';
+import {
+  isToday,
+  isTomorrow,
+  isPast,
+  isYesterday,
+} from '../../helpers/date-helper';
+import { uiSliceActions } from '../../store/ui-slice';
 
 const TodoListItem = (props) => {
   const dispatch = useDispatch();
-
+  
   const { id, title, date, important, done } = props.itemData;
   const { liteVersion } = props;
 
@@ -33,6 +39,22 @@ const TodoListItem = (props) => {
     );
   };
 
+  const editHandler = () => {
+    dispatch(
+      todoSliceActions.setCurrentItem({
+        id,
+        title,
+        date: `${date.getFullYear()}-${date.toLocaleString('en', {
+          month: '2-digit',
+        })}-${date.toLocaleString('en', {
+          day: '2-digit',
+        })}`,
+        important,
+      })
+    );
+    dispatch(uiSliceActions.showEditor(true));
+  };
+
   return (
     <li
       className={`${classes.item} ${important ? 'bold' : ''} ${
@@ -41,6 +63,7 @@ const TodoListItem = (props) => {
     >
       {important && <span className={classes.important}>!!!&nbsp;</span>}
       <span className={classes.title}>{title}</span>
+      {!liteVersion && <button onClick={editHandler}>edit</button>}
       <div className={classes.date_box}>
         {!liteVersion && <span className={classes.date}>{dateString}</span>}
         <Checkbox id={id} checked={done} onCheckboxChange={checkboxHandler} />

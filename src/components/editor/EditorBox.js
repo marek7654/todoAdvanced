@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 
 import { uiSliceActions } from '../../store/ui-slice';
+import { todoSliceActions } from '../../store/todo-slice';
 import classes from './EditorBox.module.css';
 import Button from '../UI/Button';
 import Card from '../UI/Card';
@@ -12,6 +13,7 @@ const EditorBox = () => {
 
   const buttonClickHandler = () => {
     dispatch(uiSliceActions.showEditor(true));
+    dispatch(todoSliceActions.setCurrentItem(false));
   };
 
   return (
