@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { todoSliceActions } from '../../store/todo-slice';
+import { uiSliceActions } from '../../store/ui-slice';
 
 import Card from '../UI/Card';
 import Switch from '../UI/Switch';
@@ -7,7 +7,7 @@ import TodoList from './TodoList';
 
 const ListAll = () => {
   const dispatch = useDispatch();
-  const hideDone = useSelector((state) => state.todo.hideDone);
+  const hideDone = useSelector((state) => state.ui.hideDone);
 
   let listAllTasks = useSelector((state) =>
     state.todo.items
@@ -28,7 +28,7 @@ const ListAll = () => {
   }
 
   const switchHandler = (event) => {
-    dispatch(todoSliceActions.hideDoneTasks(event.target.checked));
+    dispatch(uiSliceActions.hideDoneTasks(event.target.checked));
   };
 
   return (
