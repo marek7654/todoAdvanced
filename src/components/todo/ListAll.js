@@ -37,6 +37,7 @@ const ListAll = () => {
         labelLeft='Hide done'
         absolute={true}
         value={hideDone}
+        name={'HideDone'}
         onSwitchChange={switchHandler}
       />
       <TodoList items={listAllTasks} />

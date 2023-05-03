@@ -33,6 +33,9 @@ const todoSlice = createSlice({
     },
     setCurrentItem(state, action) {
       state.currentItem = action.payload;
+    },
+    setIsChanged(state, action) {
+      state.isChanged = action.payload;
     }
   },
 });

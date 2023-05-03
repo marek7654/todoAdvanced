@@ -5,7 +5,7 @@ const uiSlice = createSlice({
   initialState: {
     displayEditor: false,
     darkTheme: false,
-    hideDoneTasks: false,
+    hideDone: false,
   },
   reducers: {
     showEditor(state, action) {

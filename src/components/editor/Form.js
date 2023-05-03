@@ -10,7 +10,7 @@ import classes from './Form.module.css';
 const Form = () => {
   const dispatch = useDispatch();
   const currentItem = useSelector((state) => state.todo.currentItem);
-  
+
   let values;
   if (!currentItem) {
     values = {
@@ -21,8 +21,6 @@ const Form = () => {
   } else {
     values = { ...currentItem };
   }
-
-  console.log(values);
 
   const titleChangeHandler = (event) => {
     values.title = event.target.value;
@@ -63,6 +61,7 @@ const Form = () => {
       title: event.target.elements.title.value,
       important: event.target.elements.important.checked,
       date: event.target.elements.date.value,
+      done: false,
     };
     if (!currentItem.id) {
       dispatch(todoSliceActions.addItem(item));

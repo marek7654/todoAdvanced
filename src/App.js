@@ -1,7 +1,10 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { fetchTasksFromLocalStorage, saveTasksInLocalStorage } from './store/todo-action';
+import {
+  fetchTasksFromLocalStorage,
+  saveTasksInLocalStorage,
+} from './store/todo-action';
 import Header from './components/header/Header';
 import classes from './App.module.css';
 import ListAll from './components/todo/ListAll';
@@ -12,33 +15,30 @@ let isInitial = true;
 
 const App = () => {
   const dispatch = useDispatch();
-  const todo = useSelector(state => state.todo);
+  const todo = useSelector((state) => state.todo);
 
   useEffect(() => {
-    console.log('first use effect');
     dispatch(fetchTasksFromLocalStorage());
   }, [dispatch]);
 
   useEffect(() => {
     if (isInitial) {
       isInitial = false;
-      console.log('is initail handler');
       return;
     }
-    //if (todo.isChanged) {
-      saveTasksInLocalStorage(todo.items);
-    //}
-  }, [todo]);
+    if (todo.isChanged) {
+      dispatch(saveTasksInLocalStorage(todo.items));
+    }
+  }, [todo, dispatch]);
 
-  console.log('APP', todo);
   return (
     <>
       <Header />
       <main>
         <div className='container'>
           <div className={classes.calendars_wrapper}>
-            <ListByDate day="today" />
-            <ListByDate day="tomorrow" />
+            <ListByDate day='today' />
+            <ListByDate day='tomorrow' />
           </div>
           <EditorBox />
           <ListAll />
@@ -46,6 +46,6 @@ const App = () => {
       </main>
     </>
   );
-}
+};
 
 export default App;

@@ -4,7 +4,10 @@ const TASKS_LOCAL_STORAGE_KEY = 'todoAdvanced';
 
 export const saveTasksInLocalStorage = (todo) => {
   console.log('SAVED');
-  localStorage.setItem(TASKS_LOCAL_STORAGE_KEY, JSON.stringify(todo));
+  return (dispatch) => {
+    localStorage.setItem(TASKS_LOCAL_STORAGE_KEY, JSON.stringify(todo));
+    dispatch(todoSliceActions.setIsChanged(false));
+  }
 };
 
 export const fetchTasksFromLocalStorage = () => {

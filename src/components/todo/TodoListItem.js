@@ -74,7 +74,7 @@ const TodoListItem = (props) => {
       {!liteVersion && <button onClick={removeHandler}>remove</button>}
       <div className={classes.date_box}>
         {!liteVersion && <span className={classes.date}>{dateString}</span>}
-        <Checkbox id={id} checked={done} onCheckboxChange={checkboxHandler} />
+        <Checkbox id={id} checked={done} onCheckboxChange={checkboxHandler} name={id} />
       </div>
     </li>
   );
