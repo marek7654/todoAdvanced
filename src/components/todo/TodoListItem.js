@@ -32,7 +32,7 @@ const TodoListItem = (props) => {
 
   const checkboxHandler = () => {
     dispatch(
-      todoSliceActions.setStatus({
+      todoSliceActions.setImportantStatus({
         id,
         done,
       })

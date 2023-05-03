@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
+
 import { todoSliceActions } from '../../store/todo-slice';
 import { uiSliceActions } from '../../store/ui-slice';
-
 import Button from '../UI/Button';
 import Checkbox from '../UI/Checkbox';
 import Input from '../UI/Input';
@@ -21,6 +21,8 @@ const Form = () => {
   } else {
     values = { ...currentItem };
   }
+
+  console.log(values);
 
   const titleChangeHandler = (event) => {
     values.title = event.target.value;
@@ -62,7 +64,12 @@ const Form = () => {
       important: event.target.elements.important.checked,
       date: event.target.elements.date.value,
     };
-    console.log('SUBMIT', item);
+    if (!currentItem.id) {
+      dispatch(todoSliceActions.addItem(item));
+    } else {
+      dispatch(todoSliceActions.editItem());
+    }
+    dispatch(uiSliceActions.showEditor(false));
   };
 
   return (
@@ -100,7 +107,7 @@ const Form = () => {
         >
           Cancel
         </Button>
-        <Button style={{ background: 'var(--color-accent-2)' }}>Add</Button>
+        <Button style={{ background: 'var(--color-accent-2)' }}>Save</Button>
       </div>
     </form>
   );

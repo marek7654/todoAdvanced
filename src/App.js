@@ -1,17 +1,38 @@
-import { Provider } from 'react-redux';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
-import store from './store';
+import { fetchTasksFromLocalStorage, saveTasksInLocalStorage } from './store/todo-action';
 import Header from './components/header/Header';
-
 import classes from './App.module.css';
 import ListAll from './components/todo/ListAll';
 import ListByDate from './components/todo/ListByDate';
 import EditorBox from './components/editor/EditorBox';
 
-const App = () => {
+let isInitial = true;
 
+const App = () => {
+  const dispatch = useDispatch();
+  const todo = useSelector(state => state.todo);
+
+  useEffect(() => {
+    console.log('first use effect');
+    dispatch(fetchTasksFromLocalStorage());
+  }, [dispatch]);
+
+  useEffect(() => {
+    if (isInitial) {
+      isInitial = false;
+      console.log('is initail handler');
+      return;
+    }
+    //if (todo.isChanged) {
+      saveTasksInLocalStorage(todo.items);
+    //}
+  }, [todo]);
+
+  console.log('APP', todo);
   return (
-    <Provider store={store}>
+    <>
       <Header />
       <main>
         <div className='container'>
@@ -23,7 +44,7 @@ const App = () => {
           <ListAll />
         </div>
       </main>
-    </Provider>
+    </>
   );
 }
 
