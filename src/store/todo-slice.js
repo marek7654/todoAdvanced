@@ -5,7 +5,6 @@ const todoSlice = createSlice({
   initialState: {
     items: [],
     isChanged: false,
-    currentItem: false,
   },
   reducers: {
     setItems(state, action) {
@@ -16,8 +15,8 @@ const todoSlice = createSlice({
       state.isChanged = true;
     },
     editItem(state, action) {
-      const index = state.items.findIndex(item => item.id === state.currentItem.id);
-      state.items[index] = state.currentItem;
+      const index = state.items.findIndex(item => item.id === action.payload.id);
+      state.items[index] = action.payload;
       state.isChanged = true;
     },
     setImportantStatus(state, action) {
@@ -30,9 +29,6 @@ const todoSlice = createSlice({
     removeItem(state, action) {
       state.items = state.items.filter(item => item.id !== action.payload);
       state.isChanged = true;
-    },
-    setCurrentItem(state, action) {
-      state.currentItem = action.payload;
     },
     setIsChanged(state, action) {
       state.isChanged = action.payload;

@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { todoSliceActions } from '../../store/todo-slice';
 import { uiSliceActions } from '../../store/ui-slice';
+import { editorSliceActions } from '../../store/editor-slice';
 import Button from '../UI/Button';
 import Checkbox from '../UI/Checkbox';
 import Input from '../UI/Input';
@@ -9,7 +10,7 @@ import classes from './Form.module.css';
 
 const Form = () => {
   const dispatch = useDispatch();
-  const currentItem = useSelector((state) => state.todo.currentItem);
+  const currentItem = useSelector((state) => state.editor.currentItem);
 
   let values;
   if (!currentItem) {
@@ -25,7 +26,7 @@ const Form = () => {
   const titleChangeHandler = (event) => {
     values.title = event.target.value;
     dispatch(
-      todoSliceActions.setCurrentItem({
+      editorSliceActions.setCurrentItem({
         ...values,
       })
     );
@@ -34,7 +35,7 @@ const Form = () => {
   const dateChangeHandler = (event) => {
     values.date = event.target.value;
     dispatch(
-      todoSliceActions.setCurrentItem({
+      editorSliceActions.setCurrentItem({
         ...values,
       })
     );
@@ -43,7 +44,7 @@ const Form = () => {
   const importantChangeHandler = (event) => {
     values.important = event.target.checked;
     dispatch(
-      todoSliceActions.setCurrentItem({
+      editorSliceActions.setCurrentItem({
         ...values,
       })
     );
@@ -66,7 +67,7 @@ const Form = () => {
     if (!currentItem.id) {
       dispatch(todoSliceActions.addItem(item));
     } else {
-      dispatch(todoSliceActions.editItem());
+      dispatch(todoSliceActions.editItem(item));
     }
     dispatch(uiSliceActions.showEditor(false));
   };
