@@ -1,6 +1,6 @@
 .item {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   font-size: 1.5rem;
   margin-bottom: 10px;
 }
@@ -31,4 +31,24 @@
 .date {
   margin-right: 10px;
   font-size: 1.2rem;
+}
+
+.button {
+  border: 0;
+  margin-left: 5px;
+  padding: 0;
+  cursor: pointer;
+  background-color: transparent;
+  opacity: .4;
+}
+.button:first-of-type {
+  margin-left: 20px;
+}
+.button:hover {
+  opacity: 1;
+}
+
+.icon {
+  width: auto;
+  height: 20px;
 }

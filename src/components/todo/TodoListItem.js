@@ -11,6 +11,8 @@ import {
   isYesterday,
 } from '../../helpers/date-helper';
 import { uiSliceActions } from '../../store/ui-slice';
+import deleteIcon from '../../assets/images/delete.svg';
+import editIcon from '../../assets/images/edit.svg';
 
 const TodoListItem = (props) => {
   const dispatch = useDispatch();
@@ -63,7 +65,7 @@ const TodoListItem = (props) => {
       dispatch(todoSliceActions.removeItem(id));
     }
   };
-  
+
   return (
     <li
       className={`${classes.item} ${important ? 'bold' : ''} ${
@@ -72,8 +74,16 @@ const TodoListItem = (props) => {
     >
       {important && <span className={classes.important}>!!!&nbsp;</span>}
       <span className={classes.title}>{title}</span>
-      {!liteVersion && <button onClick={editHandler}>edit</button>}
-      {!liteVersion && <button onClick={removeHandler}>remove</button>}
+      {!liteVersion && (
+        <button className={classes.button} onClick={editHandler}>
+          <img className={classes.icon} src={editIcon} alt="Edit icon" />
+        </button>
+      )}
+      {!liteVersion && (
+        <button className={classes.button} onClick={removeHandler}>
+          <img className={classes.icon} src={deleteIcon} alt="Delete icon" />
+        </button>
+      )}
       <div className={classes.date_box}>
         {!liteVersion && <span className={classes.date}>{dateString}</span>}
         <Checkbox
