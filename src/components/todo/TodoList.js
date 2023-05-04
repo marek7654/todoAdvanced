@@ -3,11 +3,18 @@ import TodoListItem from './TodoListItem';
 
 const TodoList = (props) => {
   return (
-    <ul className={classes.list}>
-      {props.items.map((item) => (
-        <TodoListItem key={item.id} itemData={item} liteVersion={props.liteVersion}/>
-      ))}
-    </ul>
+    <>
+      {props.items.length === 0 && <p>You have no tasks</p>}
+      <ul className={classes.list}>
+        {props.items.map((item) => (
+          <TodoListItem
+            key={item.id}
+            itemData={item}
+            liteVersion={props.liteVersion}
+          />
+        ))}
+      </ul>
+    </>
   );
 };
 
