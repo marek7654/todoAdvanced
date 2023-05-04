@@ -10,6 +10,7 @@ import Form from './Form';
 const EditorBox = () => {
   const dispatch = useDispatch();
   const displayEditor = useSelector((state) => state.ui.displayEditor);
+  const currentItem = useSelector((state) => state.editor.currentItem);
 
   const buttonClickHandler = () => {
     dispatch(uiSliceActions.showEditor(true));
@@ -23,7 +24,7 @@ const EditorBox = () => {
       </div>
       {displayEditor && (
         <div className={classes.form_wrapper}>
-          <Card title='Add new item'>
+          <Card title={currentItem ? 'Edit task' : 'Add new task'}>
             <Form />
           </Card>
         </div>
