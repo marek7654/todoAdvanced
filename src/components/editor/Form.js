@@ -81,6 +81,7 @@ const Form = () => {
           onChange={titleChangeHandler}
           placeholder='Your task'
           style={{ flex: 3 }}
+          required={true}
         />
         <Input
           name='date'
@@ -89,6 +90,7 @@ const Form = () => {
           type='date'
           placeholder='Date'
           style={{ flex: 1 }}
+          required={true}
         />
       </div>
       <div className={classes.checkbox_wrapper}>
