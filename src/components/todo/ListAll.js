@@ -1,30 +1,29 @@
-import { useSelector, useDispatch } from 'react-redux';
-import { uiSliceActions } from '../../store/ui-slice';
+import React from 'react';
+import { useSelector, useDispatch, connect } from 'react-redux';
 
+import { uiSliceActions } from '../../store/ui-slice';
 import Card from '../UI/Card';
 import Switch from '../UI/Switch';
 import TodoList from './TodoList';
 
-const ListAll = () => {
+const ListAll = (props) => {
   const dispatch = useDispatch();
   const hideDone = useSelector((state) => state.ui.hideDone);
 
-  let listAllTasks = useSelector((state) =>
-    state.todo.items
-      .map((item) => {
-        return {
-          id: item.id,
-          title: item.title,
-          important: item.important,
-          date: new Date(item.date),
-          done: item.done,
-        };
-      })
-      .sort((a, b) => a.date - b.date)
-  );
-  
+  let listAllTasks = props.items
+    .map((item) => {
+      return {
+        id: item.id,
+        title: item.title,
+        important: item.important,
+        date: new Date(item.date),
+        done: item.done,
+      };
+    })
+    .sort((a, b) => a.date - b.date);
+
   if (hideDone) {
-    listAllTasks = listAllTasks.filter(item => !item.done);
+    listAllTasks = listAllTasks.filter((item) => !item.done);
   }
 
   const switchHandler = (event) => {
@@ -32,9 +31,9 @@ const ListAll = () => {
   };
 
   return (
-    <Card title='Your tasks'>
+    <Card title="Your tasks">
       <Switch
-        labelLeft='Hide done'
+        labelLeft="Hide done"
         absolute={true}
         value={hideDone}
         name={'HideDone'}
@@ -45,4 +44,10 @@ const ListAll = () => {
   );
 };
 
-export default ListAll;
+const mapStateToProps = (state) => ({
+  items: state.todo.items,
+});
+
+const MemomizedListAll = connect(mapStateToProps)(React.memo(ListAll));
+
+export default MemomizedListAll;

@@ -7,8 +7,8 @@ import {
 } from './store/todo-action';
 import Header from './components/header/Header';
 import classes from './App.module.css';
-import ListAll from './components/todo/ListAll';
-import ListByDate from './components/todo/ListByDate';
+import MemomizedListAll from './components/todo/ListAll';
+import MemomizedListByDate from './components/todo/ListByDate';
 import EditorBox from './components/editor/EditorBox';
 
 let isInitial = true;
@@ -37,11 +37,11 @@ const App = () => {
       <main>
         <div className='container'>
           <div className={classes.calendars_wrapper}>
-            <ListByDate day='today' />
-            <ListByDate day='tomorrow' />
+            <MemomizedListByDate day='today' />
+            <MemomizedListByDate day='tomorrow' />
           </div>
           <EditorBox />
-          <ListAll />
+          <MemomizedListAll />
         </div>
       </main>
     </>
