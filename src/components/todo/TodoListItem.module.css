@@ -6,11 +6,11 @@
 }
 
 .overdue {
-  color: var(--color-secondary);
+  color: var(--color-accent);
 }
 
 .important {
-  color: limegreen;
+  color: var(--color-primary);
 }
 
 .done { 

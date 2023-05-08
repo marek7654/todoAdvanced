@@ -20,7 +20,7 @@
 
 .absolute .span_left,
 .absolute .span_right {
-  color: white;
+  color: var(--color-card-bg);
 }
 
 .switch {
@@ -29,7 +29,7 @@
   width: 60px;
   height: 34px;
   border-radius: 20px;
-  box-shadow: 0 0.5rem 1.125rem -0.5rem rgba(93, 176, 240, 0.9);
+  box-shadow: 0 0.5rem 1.125rem -0.5rem var(--color-accent);
   overflow: hidden;
 }
 
@@ -50,7 +50,7 @@ input.checkbox {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: var(--color-secondary);
+  background-color: var(--color-switch-on);
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
@@ -62,18 +62,18 @@ input.checkbox {
   width: 26px;
   left: 4px;
   bottom: 4px;
-  background-color: white;
+  background-color: var(--color-card-bg);
   border-radius: 50%;
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
 
 input.checkbox:checked + .slider {
-  background-color: var(--color-accent);
+  background-color: var(--color-switch-off);
 }
 
 input.checkbox:focus + .slider {
-  box-shadow: 0 0 1px var(--color-accent);
+  box-shadow: 0 0 1px var(--color-switch-off);
 }
 
 input.checkbox:checked + .slider:before {

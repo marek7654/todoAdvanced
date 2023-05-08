@@ -1,12 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300;400&display=swap');
 
 :root {
-	--checkbox-size: 30px;
-  --color-primary: darkslateblue;
-  --color-secondary: #ba2988;
-  --color-secondary-light: palevioletred;
-  --color-accent: #ff5f25;
-  --color-accent-2: limegreen;
+	--checkbox-size: 32px;
+  --color-primary: #00DC82;
+  --color-primary-light: #4DE7A8;
+  --color-secondary: #098466;
+  --color-bg1: #001E26;
+  --color-bg2: #003543;
+  --color-text: #003543;
+  --color-accent: #28AAF0;
+  --color-card-bg: #E6FCF3;
+  --color-switch-off: #00DC82;
+  --color-switch-on: #003543;
 }
 
 body {
@@ -14,12 +19,12 @@ body {
   font-family: 'Kalam', cursive;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: var(--color-primary);
-  background: var(--color-secondary);
+  color: var(--color-text);
+  background: var(--color-bg1);
   background: linear-gradient(
     90deg,
-    var(--color-secondary) 0%,
-    var(--color-accent) 100%
+    var(--color-bg1) 0%,
+    var(--color-bg2) 100%
   );
   min-height: 100vh;
 }

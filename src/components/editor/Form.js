@@ -104,12 +104,12 @@ const Form = () => {
       </div>
       <div className={classes.buttons_wrapper}>
         <Button
-          style={{ background: 'var(--color-secondary)' }}
+          style={{ background: 'var(--color-primary)' }}
           onButtonClick={cancelButtonHandler}
         >
           Cancel
         </Button>
-        <Button style={{ background: 'var(--color-accent-2)' }}>Save</Button>
+        <Button style={{ background: 'var(--color-accent)' }}>Save</Button>
       </div>
     </form>
   );
