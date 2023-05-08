@@ -76,12 +76,12 @@ const TodoListItem = (props) => {
       <span className={classes.title}>{title}</span>
       {!liteVersion && (
         <button className={classes.button} onClick={editHandler}>
-          <img className={classes.icon} src={editIcon} alt="Edit icon" />
+          <img className={`${classes.icon} item_icons`} src={editIcon} alt="Edit icon" />
         </button>
       )}
       {!liteVersion && (
         <button className={classes.button} onClick={removeHandler}>
-          <img className={classes.icon} src={deleteIcon} alt="Delete icon" />
+          <img className={`${classes.icon} item_icons`} src={deleteIcon} alt="Delete icon" />
         </button>
       )}
       <div className={classes.date_box}>

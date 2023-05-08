@@ -1,6 +1,7 @@
 .header {
-  background-color: var(--color-card-bg);
+  background-color: var(--color-header-bg);
   padding: 20px 0;
+  transition: background-color .2s;
 }
 
 .container {
@@ -11,5 +12,5 @@
   margin: 0;
   width: fit-content;
   font-family: 'Kalam', cursive;
-  color: var(--color-secondary);
+  color: var(--color-header-title);
 }

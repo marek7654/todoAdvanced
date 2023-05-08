@@ -14,6 +14,9 @@ const uiSlice = createSlice({
     hideDoneTasks(state, action) {
       state.hideDone = action.payload;
     },
+    toggleTheme(state, action) {
+      state.darkTheme = !state.darkTheme;
+    }
   }
 });
 

@@ -20,7 +20,7 @@
 
 .absolute .span_left,
 .absolute .span_right {
-  color: var(--color-card-bg);
+  color: var(--color-card-header-title);
 }
 
 .switch {

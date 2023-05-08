@@ -5,12 +5,13 @@
   background-color: var(--color-card-bg);
   overflow: hidden;
   box-shadow: rgba(50, 50, 93, 0.50) 0px 30px 60px -12px, rgba(0, 0, 0, 0.5) 0px 18px 36px -18px;
+  transition: background-color .2s;
 }
 
 .title {
   margin: 0;
   background-color: var(--color-secondary);
-  color: var(--color-card-bg);
+  color: var(--color-card-header-title);
   padding: 10px 20px;
 }
 

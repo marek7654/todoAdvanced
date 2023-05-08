@@ -8,6 +8,7 @@
   border-left: 0;
   border-bottom: 2px solid var(--color-text);
   outline: none;
+  transition: background-color .2s;
 }
 
 .input:focus,

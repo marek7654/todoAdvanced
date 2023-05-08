@@ -2,16 +2,34 @@
 
 :root {
 	--checkbox-size: 32px;
-  --color-primary: #00DC82;
-  --color-primary-light: #4DE7A8;
-  --color-secondary: #098466;
   --color-bg1: #001E26;
   --color-bg2: #003543;
+  --color-header-bg: #E6FCF3;
+  --color-header-title: #098466;
+  --color-card-header-title: #E6FCF3;
+  --color-primary: #00DC82;
+  --color-secondary: #098466;
   --color-text: #003543;
+  --color-button-text: #001E26;
   --color-accent: #28AAF0;
   --color-card-bg: #E6FCF3;
   --color-switch-off: #00DC82;
   --color-switch-on: #003543;
+  --color-checkbox-tick: #098466;
+}
+
+.dark_theme {
+  --color-header-bg: #098466;
+  --color-header-title: #E6FCF3;
+  --color-text: #E6FCF3;
+  --color-card-bg: #003543;
+  --color-switch-off: #00DC82;
+  --color-switch-on: #28AAF0;
+  --color-checkbox-tick: #28AAF0;
+}
+
+html {
+  background-color: var(--color-secondary);
 }
 
 body {
@@ -41,4 +59,8 @@ body {
 
 main {
   margin: 60px 0 60px 0;
+}
+
+.dark_theme .item_icons {
+  filter: invert(1);
 }

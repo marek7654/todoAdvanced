@@ -10,12 +10,14 @@ import classes from './App.module.css';
 import MemomizedListAll from './components/todo/ListAll';
 import MemomizedListByDate from './components/todo/ListByDate';
 import EditorBox from './components/editor/EditorBox';
+import { switchDarkMode } from './helpers/global-helper';
 
 let isInitial = true;
 
 const App = () => {
   const dispatch = useDispatch();
   const todo = useSelector((state) => state.todo);
+  const darkMode = useSelector((state) => state.ui.darkTheme);
 
   useEffect(() => {
     dispatch(fetchTasksFromLocalStorage());
@@ -30,6 +32,10 @@ const App = () => {
       dispatch(saveTasksInLocalStorage(todo.items));
     }
   }, [todo, dispatch]);
+
+  useEffect(() => {
+    switchDarkMode(darkMode);
+  }, [darkMode])
 
   return (
     <>
