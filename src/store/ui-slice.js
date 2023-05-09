@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
 const uiSlice = createSlice({
   name: 'ui',
@@ -6,6 +6,7 @@ const uiSlice = createSlice({
     displayEditor: false,
     darkTheme: false,
     hideDone: false,
+    isChanged: false,
   },
   reducers: {
     showEditor(state, action) {
@@ -16,8 +17,12 @@ const uiSlice = createSlice({
     },
     toggleTheme(state, action) {
       state.darkTheme = !state.darkTheme;
-    }
-  }
+      state.isChanged = true;
+    },
+    setDarkThemeState(state, action) {
+      state.darkTheme = action.payload;
+    },
+  },
 });
 
 export default uiSlice;

@@ -1,42 +1,41 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
+import classes from './App.module.css';
 import {
   fetchTasksFromLocalStorage,
   saveTasksInLocalStorage,
 } from './store/todo-action';
+import { fetchThemeSetting, saveThemeSetting } from './store/ui-action';
+import { switchDarkMode } from './helpers/global-helper';
 import MemomizedHeader from './components/layout/Header';
-import classes from './App.module.css';
 import MemomizedListAll from './components/todo/ListAll';
 import MemomizedListByDate from './components/todo/ListByDate';
 import EditorBox from './components/editor/EditorBox';
-import { switchDarkMode } from './helpers/global-helper';
 import Footer from './components/layout/Footer';
-
-let isInitial = true;
 
 const App = () => {
   const dispatch = useDispatch();
   const todo = useSelector((state) => state.todo);
-  const darkMode = useSelector((state) => state.ui.darkTheme);
+  const {darkTheme, isChanged: darkThemeIsChanged} = useSelector((state) => state.ui);
 
   useEffect(() => {
     dispatch(fetchTasksFromLocalStorage());
+    dispatch(fetchThemeSetting());
   }, [dispatch]);
 
   useEffect(() => {
-    if (isInitial) {
-      isInitial = false;
-      return;
+    switchDarkMode(darkTheme);
+    if (darkThemeIsChanged) {
+      saveThemeSetting(darkTheme);
     }
+  }, [darkTheme, darkThemeIsChanged]);
+
+  useEffect(() => {
     if (todo.isChanged) {
       dispatch(saveTasksInLocalStorage(todo.items));
     }
   }, [todo, dispatch]);
-
-  useEffect(() => {
-    switchDarkMode(darkMode);
-  }, [darkMode])
 
   return (
     <>
