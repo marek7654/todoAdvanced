@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300;400&display=swap');
 
 :root {
-	--checkbox-size: 32px;
+	--checkbox-size: 24px;
   --color-bg1: #001E26;
   --color-bg2: #003543;
   --color-header-bg: #E6FCF3;
@@ -16,6 +16,12 @@
   --color-switch-off: #00DC82;
   --color-switch-on: #003543;
   --color-checkbox-tick: #098466;
+}
+
+@media (min-width: 992px) {
+  :root {
+    --checkbox-size: 32px;
+  }
 }
 
 .dark_theme {
@@ -64,7 +70,7 @@ body {
 }
 
 main {
-  margin: 60px 0 60px 0;
+  margin: 60px 0 auto 0;
 }
 
 .dark_theme .item_icons {

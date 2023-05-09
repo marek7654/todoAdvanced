@@ -1,10 +1,17 @@
 .button {
-  padding: 13px 20px 8px;
+  padding: 10px 18px 5px;
   border-radius: 10px;
   border: 0;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   color: var(--color-button-text);
   background-color: var(--color-primary);
   font-family: inherit;
   cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .button {    
+    padding: 13px 20px 8px;
+    font-size: 1.5rem;
+  }
 }

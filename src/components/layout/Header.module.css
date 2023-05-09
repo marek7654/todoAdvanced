@@ -5,11 +5,19 @@
 
 .container {
   display: flex;
+  align-items: center;
 }
 
 .title {
-  margin: 0;
+  margin: 0 10px 0 0;
   width: fit-content;
+  line-height: 1;
   font-family: 'Kalam', cursive;
   color: var(--color-header-title);
+}
+
+@media (min-width: 992px) {
+  .title {
+    line-height: initial;
+  }
 }

@@ -1,6 +1,7 @@
 .footer {
-  background-color: var(--color-header-bg);
+  margin-top: 60px;
   padding: 20px 0;
+  background-color: var(--color-header-bg);
 }
 
 .content {

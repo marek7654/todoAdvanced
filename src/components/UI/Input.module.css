@@ -7,10 +7,17 @@
   border-right: 0;
   border-left: 0;
   border-bottom: 2px solid var(--color-text);
+  border-radius: 0px;
   outline: none;
+}
+
+@media (max-width: 767.98px) {
+  .input {
+    flex: 1 !important;
+  }
 }
 
 .input:focus,
 .input:active {
-  border-color: var(--color-text)
+  border-color: var(--color-text);
 }

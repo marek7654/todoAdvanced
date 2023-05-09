@@ -100,7 +100,7 @@ const Form = () => {
           checked={values.important}
           onCheckboxChange={importantChangeHandler}
         />
-        <h2>Important</h2>
+        <h2 className={classes.important}>Important</h2>
       </div>
       <div className={classes.buttons_wrapper}>
         <Button

@@ -11,10 +11,9 @@
   margin: 0;
   background-color: var(--color-secondary);
   color: var(--color-card-header-title);
-  padding: 10px 20px;
+  padding: 10px 20px 8px;
 }
 
 .card_body {
   padding: 20px;
 }
-

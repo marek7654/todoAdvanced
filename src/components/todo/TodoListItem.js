@@ -72,8 +72,10 @@ const TodoListItem = (props) => {
         done ? classes.done : ''
       } ${isPast(date) ? classes.overdue : ''}`}
     >
-      {important && <span className={classes.important}>!!!&nbsp;</span>}
-      <span className={classes.title}>{title}</span>
+      <div className={liteVersion ? classes.title_wrapper_lite : classes.title_wrapper}>
+        {important && <span className={classes.important}>!!!&nbsp;</span>}
+        <span className={classes.title}>{title}</span>
+      </div>
       {!liteVersion && (
         <button className={classes.button} onClick={editHandler}>
           <img className={`${classes.icon} item_icons`} src={editIcon} alt="Edit icon" />
