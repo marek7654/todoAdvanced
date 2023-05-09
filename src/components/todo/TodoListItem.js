@@ -77,12 +77,12 @@ const TodoListItem = (props) => {
         <span className={classes.title}>{title}</span>
       </div>
       {!liteVersion && (
-        <button className={classes.button} onClick={editHandler}>
+        <button className={classes.button} onClick={editHandler} aria-label='Edit task'>
           <img className={`${classes.icon} item_icons`} src={editIcon} alt="Edit icon" />
         </button>
       )}
       {!liteVersion && (
-        <button className={classes.button} onClick={removeHandler}>
+        <button className={classes.button} onClick={removeHandler} aria-label='Delete task'>
           <img className={`${classes.icon} item_icons`} src={deleteIcon} alt="Delete icon" />
         </button>
       )}
@@ -93,6 +93,7 @@ const TodoListItem = (props) => {
           checked={done}
           onCheckboxChange={checkboxHandler}
           name={id}
+          ariaLabel='Done'
         />
       </div>
     </li>

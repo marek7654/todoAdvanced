@@ -99,8 +99,9 @@ const Form = () => {
           name='important'
           checked={values.important}
           onCheckboxChange={importantChangeHandler}
+          ariaLabel='Important'
         />
-        <h2 className={classes.important}>Important</h2>
+        <label htmlFor='checkbox-editor' className={classes.important}>Important</label>
       </div>
       <div className={classes.buttons_wrapper}>
         <Button

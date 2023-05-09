@@ -10,8 +10,13 @@ const Checkbox = (props) => {
         className={classes.checkbox}
         checked={props.checked}
         onChange={props.onCheckboxChange}
+        aria-label={props.ariaLabel}
       />
-      <label htmlFor={`checkbox-${props.id}`} className={classes.label}>
+      <label
+        htmlFor={`checkbox-${props.id}`}
+        className={classes.label}
+        aria-label={props.ariaLabel}
+      >
         <div className={classes.tick}></div>
       </label>
     </>

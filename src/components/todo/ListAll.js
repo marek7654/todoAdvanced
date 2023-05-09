@@ -38,6 +38,7 @@ const ListAll = (props) => {
         value={hideDone}
         name={'HideDone'}
         onSwitchChange={switchHandler}
+        ariaLabel='Hide done'
       />
       <TodoList items={listAllTasks} />
     </Card>

@@ -22,6 +22,7 @@ const Header = (props) => {
           value={props.darkModeStatus}
           name={'DarkMode'}
           onSwitchChange={switchHandler}
+          ariaLabel='Dark Mode'
         />
       </div>
     </header>
