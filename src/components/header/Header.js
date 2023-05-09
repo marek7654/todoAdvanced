@@ -1,17 +1,17 @@
-import { useDispatch, useSelector } from 'react-redux';
+import React from 'react';
+import { useDispatch, connect } from 'react-redux';
 
 import classes from './Header.module.css';
 import Switch from '../UI/Switch';
 import { uiSliceActions } from '../../store/ui-slice';
 
 const Header = (props) => {
-  const darkModeStatus = useSelector((state) => state.ui.darkMode);
   const dispatch = useDispatch();
 
   const switchHandler = () => {
     dispatch(uiSliceActions.toggleTheme());
   };
-
+  
   return (
     <header className={classes.header}>
       <div className={`container ${classes.container}`}>
@@ -19,7 +19,7 @@ const Header = (props) => {
         <Switch
           labelLeft='Light'
           labelRight='Dark'
-          value={darkModeStatus}
+          value={props.darkModeStatus}
           name={'DarkMode'}
           onSwitchChange={switchHandler}
         />
@@ -28,4 +28,10 @@ const Header = (props) => {
   );
 };
 
-export default Header;
+const mapStateToProps = (state) => ({
+  darkModeStatus: state.ui.darkTheme,
+});
+
+const MemomizedHeader = connect(mapStateToProps)(React.memo(Header));
+
+export default MemomizedHeader;

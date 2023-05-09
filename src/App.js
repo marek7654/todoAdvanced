@@ -5,7 +5,7 @@ import {
   fetchTasksFromLocalStorage,
   saveTasksInLocalStorage,
 } from './store/todo-action';
-import Header from './components/header/Header';
+import MemomizedHeader from './components/header/Header';
 import classes from './App.module.css';
 import MemomizedListAll from './components/todo/ListAll';
 import MemomizedListByDate from './components/todo/ListByDate';
@@ -39,7 +39,7 @@ const App = () => {
 
   return (
     <>
-      <Header />
+      <MemomizedHeader />
       <main>
         <div className='container'>
           <div className={classes.calendars_wrapper}>
