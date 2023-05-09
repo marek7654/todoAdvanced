@@ -51,7 +51,6 @@ input.checkbox {
   right: 0;
   bottom: 0;
   background-color: var(--color-switch-on);
-  -webkit-transition: 0.4s;
   transition: 0.4s;
 }
 
@@ -64,7 +63,6 @@ input.checkbox {
   bottom: 4px;
   background-color: var(--color-card-bg);
   border-radius: 50%;
-  -webkit-transition: 0.4s;
   transition: 0.4s;
 }
 
