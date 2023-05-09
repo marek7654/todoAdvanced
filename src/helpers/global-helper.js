@@ -29,3 +29,5 @@ export const getCookie = (cname) => {
   }
   return '';
 };
+
+export const iOS = !window.MSStream && /iPad|iPhone|iPod/.test(navigator.userAgent);

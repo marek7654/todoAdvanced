@@ -11,6 +11,19 @@
   outline: none;
 }
 
+.input_ios {
+  position: relative;
+}
+
+.input_ios::after {
+  content: attr(placeholder);
+  position: absolute;
+  font-size: 0.7rem;
+  width: 100%;
+  display: block;
+  bottom: -2px;
+}
+
 @media (max-width: 767.98px) {
   .input {
     flex: 1 !important;
