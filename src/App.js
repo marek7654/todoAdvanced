@@ -5,12 +5,13 @@ import {
   fetchTasksFromLocalStorage,
   saveTasksInLocalStorage,
 } from './store/todo-action';
-import MemomizedHeader from './components/header/Header';
+import MemomizedHeader from './components/layout/Header';
 import classes from './App.module.css';
 import MemomizedListAll from './components/todo/ListAll';
 import MemomizedListByDate from './components/todo/ListByDate';
 import EditorBox from './components/editor/EditorBox';
 import { switchDarkMode } from './helpers/global-helper';
+import Footer from './components/layout/Footer';
 
 let isInitial = true;
 
@@ -50,6 +51,7 @@ const App = () => {
           <MemomizedListAll />
         </div>
       </main>
+      <Footer />
     </>
   );
 };

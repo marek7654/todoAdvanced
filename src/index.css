@@ -44,6 +44,12 @@ body {
     var(--color-bg1) 0%,
     var(--color-bg2) 100%
   );
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   min-height: 100vh;
 }
 
