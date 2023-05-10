@@ -42,6 +42,7 @@ const App = () => {
       <MemomizedHeader />
       <main>
         <div className='container'>
+          <blockquote className={classes.quote}>„Failing to plan is planning to fail.”</blockquote>
           <div className={classes.calendars_wrapper}>
             <MemomizedListByDate day='today' />
             <MemomizedListByDate day='tomorrow' />
