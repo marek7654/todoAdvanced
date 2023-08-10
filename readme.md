@@ -8,5 +8,5 @@ Mark tasks that have the highest priority.
 Use light or dark theme.
 
 ### Website
-https://todo.mzborowski.pl
+https://todo.zboro.dev
 
